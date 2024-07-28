@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <form method="POST" action="{{ route('login.post') }}">
+        <form method="POST" action="{{ route('login.post') }}" id="loginForm">
             @csrf
             <input type="email" name="email" placeholder="Correo Electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>

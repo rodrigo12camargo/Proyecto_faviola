@@ -9,14 +9,12 @@
 <body>
     <div class="schedule-container">
         <h1>Horarios de Recolección de Basura</h1>
-        <!-- Contenido de la tabla de horarios -->
         <table>
             <tr>
                 <th>Zona</th>
                 <th>Día</th>
                 <th>Hora</th>
             </tr>
-            <!-- Ejemplo de datos, sustituir por datos reales -->
             <tr>
                 <td>Centro</td>
                 <td>Lunes</td>
@@ -31,5 +29,3 @@
     </div>
 </body>
 </html>
-
-

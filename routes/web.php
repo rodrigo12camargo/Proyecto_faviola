@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
 
 // Redirigir la ruta raíz a la vista de registro
 Route::get('/', function () {
@@ -10,18 +8,27 @@ Route::get('/', function () {
 });
 
 // Mostrar formulario de registro
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
 
 // Manejar el registro de usuarios
-Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
+Route::post('/register', function () {
+    // Aquí se puede manejar el registro si es necesario
+    return redirect()->route('login')->with('success', 'Registro exitoso. Por favor, inicie sesión.');
+})->name('register.post');
 
 // Mostrar formulario de inicio de sesión
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
-// Manejar el inicio de sesión
-Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+// Manejar el inicio de sesión y redirigir a la vista de horarios
+Route::post('/login', function () {
+    return redirect()->route('schedule');
+})->name('login.post');
 
-// Ruta protegida para mostrar los horarios
+// Ruta para mostrar los horarios, sin middleware de autenticación
 Route::get('/schedule', function () {
-    return view('schedule'); // Asegúrate de tener una vista llamada schedule.blade.php
-})->middleware('auth')->name('schedule');
+    return view('schedule');
+})->name('schedule');
