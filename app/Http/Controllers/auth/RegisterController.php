@@ -1,14 +1,12 @@
 <?php
 
 
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -28,14 +26,13 @@ class RegisterController extends Controller
         // Almacenar datos en sesión temporalmente para validar más tarde
         session(['registration_data' => $data]);
 
-         //Crear el usuario (opcional)
-             User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // Crear el usuario (opcional)
+        // User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
 
         return redirect()->route('login');
     }
 }
-
