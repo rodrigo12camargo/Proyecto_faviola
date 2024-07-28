@@ -116,9 +116,6 @@
                 <td>12:00 - 14:00</td>
             </tr>
         </table>
-        <div class="footer">
-            <a href="#">Volver al inicio</a>
-        </div>
     </div>
 </body>
 </html>
